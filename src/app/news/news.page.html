@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let article of articles">
+  <ion-card *ngFor="let article of articles" (click)="onSinglePage(article)">
     <ion-img [src]="article.urlToImage"></ion-img>
   
     <ion-card-content>
       <ion-card-title>{{article.title}}</ion-card-title>
   
-      <p>{{article.description}}</p>
+      <!-- <p>{{article.description}}</p> -->
     </ion-card-content>
   </ion-card>
 </ion-content>
