@@ -8,11 +8,13 @@ import { NewsService } from '../news.service';
 })
 export class NewsPage implements OnInit {
 
+  articles: Object;
+
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
     this.newsService.getData('everything?q=bitcoin&from=2018-08-14&sortBy=publishedAt')
-      .subscribe( data => console.log(data))
+      .subscribe( data => this.articles = data.articles )
   }
 
 }
