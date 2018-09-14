@@ -16,7 +16,7 @@ export class NewsPage implements OnInit {
   ngOnInit() {
     this.newsService
       .getData('everything?q=bitcoin&from=2018-08-14&sortBy=publishedAt')
-      .subscribe( data => {
+      .subscribe( (data: Article) => {
         this.articles = data.articles
         console.log(this.articles)
       } )
@@ -27,4 +27,11 @@ export class NewsPage implements OnInit {
     this.router.navigate(['/news-single'])
   }
 
+}
+
+interface Article {
+  articles?: string;
+  title: string;
+  description: string;
+  urlToImage: string;
 }
